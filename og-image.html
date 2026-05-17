@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>OG Image — Dangerously Confident</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Syne:wght@800&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    background: #080810;
+    color: #f0f0f5;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 15% -10%, rgba(255,60,60,0.25) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 50% at 100% 110%, rgba(255,123,0,0.20) 0%, transparent 55%);
+  }
+
+  .wrap {
+    position: relative;
+    height: 100%;
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .top-block { display: flex; flex-direction: column; }
+  .footer-row { margin-top: auto; }
+
+  .eyebrow {
+    font-size: 16px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #ff3c3c;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 108px;
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 16px 0 22px;
+  }
+
+  h1 span {
+    background: linear-gradient(135deg, #ff3c3c, #ff7b00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .sub {
+    font-size: 23px;
+    line-height: 1.4;
+    color: #b1b1c8;
+    max-width: 860px;
+    font-weight: 500;
+  }
+  .sub strong { color: #f0f0f5; }
+
+  .realms-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .realm-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 100px;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .realm-pill .icon { font-size: 19px; }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+  }
+  .brand span {
+    background: linear-gradient(135deg, #ff3c3c, #ff7b00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cta {
+    padding: 12px 26px;
+    background: linear-gradient(135deg, #ff3c3c, #ff7b00);
+    border-radius: 100px;
+    font-size: 17px;
+    font-weight: 700;
+    box-shadow: 0 0 40px rgba(255,60,60,0.4);
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top-block">
+      <p class="eyebrow">The 6-Realm Framework</p>
+      <h1>Dangerously<br><span>Confident.</span></h1>
+      <p class="sub">A <strong>5-minute audit</strong> across the six realms of competence. Find your weakest realm — and get a <strong>7-day plan</strong> to fix it.</p>
+    </div>
+
+    <div class="realms-row">
+      <span class="realm-pill"><span class="icon">⚡</span> Skills</span>
+      <span class="realm-pill"><span class="icon">🔥</span> Physical</span>
+      <span class="realm-pill"><span class="icon">🧠</span> Mental</span>
+      <span class="realm-pill"><span class="icon">🤝</span> Social</span>
+      <span class="realm-pill"><span class="icon">🧭</span> Spiritual</span>
+      <span class="realm-pill"><span class="icon">💰</span> Financial</span>
+    </div>
+
+    <div class="footer-row">
+      <p class="brand">Dangerously <span>Confident.</span></p>
+      <div class="cta">Take the audit →</div>
+    </div>
+  </div>
+</body>
+</html>

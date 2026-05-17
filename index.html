@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dangerously Confident — The 6-Realm Audit</title>
+  <meta name="description" content="A 5-minute audit across the 6 realms of competence — skills, body, mind, social, spiritual, money. Find your weakest realm and get a 7-day plan to fix it." />
+  <meta name="theme-color" content="#080810" />
+  <meta name="author" content="Dangerously Confident" />
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn, Discord) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dangerously Confident — The 6-Realm Audit" />
+  <meta property="og:description" content="A 5-minute audit across the 6 realms of competence. Find your weakest realm. Get a 7-day plan. Build dangerous confidence." />
+  <meta property="og:image" content="og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Dangerously Confident — six realms of competence: skills, physical, mental, social, spiritual, financial." />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dangerously Confident — The 6-Realm Audit" />
+  <meta name="twitter:description" content="A 5-minute audit across the 6 realms of competence. Find your weakest realm. Get a 7-day plan." />
+  <meta name="twitter:image" content="og-image.png" />
+
+  <!-- Favicon (inline SVG — flame on dark) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23080810'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080810;
+      --bg2: #0d0d1a;
+      --accent: #ff3c3c;
+      --accent2: #ff7b00;
+      --gold: #f5c842;
+      --white: #f0f0f5;
+      --muted: #6b6b88;
+      --card: #111120;
+      --border: #1e1e38;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,60,60,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 110%, rgba(255,123,0,0.12) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 8vw, 7rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      width: 100%;
+      max-width: 100%;
+      white-space: nowrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      max-width: 520px;
+      font-size: 1.1rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 2rem auto 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+
+    .hero-sub strong { color: var(--white); }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 40px rgba(255,60,60,0.3);
+    }
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 0 60px rgba(255,60,60,0.5);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0;
+      animation: fadeUp 1s 1.2s forwards;
+    }
+    .scroll-hint span {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      margin-right: -0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .scroll-arrow {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--muted), transparent);
+      animation: scrollPulse 2s infinite;
+    }
+
+    /* ── EQUATION BANNER ── */
+    .equation {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .equation-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.1rem, 3.2vw, 2.5rem);
+      font-weight: 800;
+      max-width: 100%;
+    }
+    .eq-pill {
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(255,60,60,0.1);
+      border: 1px solid rgba(255,60,60,0.3);
+      color: var(--accent);
+      white-space: nowrap;
+      max-width: 100%;
+    }
+    .eq-op { color: var(--muted); font-size: clamp(1.1rem, 3vw, 2rem); }
+    .eq-result {
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+    }
+
+    /* ── SECTION COMMON ── */
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* ── REALMS GRID ── */
+    .realms-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .realms-header .section-desc { margin: 0 auto; }
+
+    .realms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .realm-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .realm-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--card-glow, rgba(255,60,60,0.05));
+      opacity: 0;
+      transition: opacity 0.3s;
+      border-radius: inherit;
+    }
+    .realm-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--card-color, var(--accent));
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .realm-card:hover::before { opacity: 1; }
+
+    .realm-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .realm-number {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--card-color, var(--accent));
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .realm-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+
+    .realm-desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .realm-action {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .realm-action-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--white);
+      opacity: 0.8;
+    }
+    .realm-action-item::before {
+      content: '→';
+      color: var(--card-color, var(--accent));
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* individual realm colors */
+    .realm-1 { --card-color: #ff3c3c; --card-glow: rgba(255,60,60,0.06); }
+    .realm-2 { --card-color: #ff7b00; --card-glow: rgba(255,123,0,0.06); }
+    .realm-3 { --card-color: #4facfe; --card-glow: rgba(79,172,254,0.06); }
+    .realm-4 { --card-color: #a78bfa; --card-glow: rgba(167,139,250,0.06); }
+    .realm-5 { --card-color: #34d399; --card-glow: rgba(52,211,153,0.06); }
+    .realm-6 { --card-color: #f5c842; --card-glow: rgba(245,200,66,0.06); }
+
+    /* ── SELF ASSESSMENT ── */
+    .assessment-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 3rem;
+      margin-top: 5rem;
+    }
+
+    .assessment-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .assessment-sub {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── QUESTION CARDS (accordion: only one expanded at a time) ── */
+    .questions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .question-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0.875rem 1.125rem;
+      cursor: pointer;
+      transition: border-color 0.3s, background 0.3s, padding 0.3s;
+    }
+    .question-card.answered {
+      border-color: color-mix(in srgb, var(--q-color) 35%, var(--border));
+      background: color-mix(in srgb, var(--q-color) 4%, transparent);
+    }
+    .question-card.expanded {
+      padding: 1.25rem;
+      cursor: default;
+      border-color: color-mix(in srgb, var(--q-color) 50%, var(--border));
+    }
+
+    .question-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .question-icon {
+      font-size: 1.15rem;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: color-mix(in srgb, var(--q-color) 15%, transparent);
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+    .question-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--q-color);
+      flex-shrink: 0;
+    }
+    .question-status {
+      margin-left: auto;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+    }
+    .question-card.answered:not(.expanded) .question-status {
+      color: color-mix(in srgb, var(--q-color) 90%, var(--white));
+    }
+    .question-card.answered:not(.expanded) .question-status::before {
+      content: '✓ ';
+      color: var(--q-color);
+      font-weight: 700;
+    }
+    .question-card.expanded .question-status { display: none; }
+
+    .question-prompt,
+    .question-options {
+      display: none;
+    }
+    .question-card.expanded .question-prompt {
+      display: block;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin: 0.875rem 0 0.875rem 42px;
+    }
+    .question-card.expanded .question-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.92rem;
+      line-height: 1.4;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.1s;
+    }
+    .option:hover {
+      border-color: color-mix(in srgb, var(--q-color) 60%, var(--border));
+      background: color-mix(in srgb, var(--q-color) 5%, transparent);
+    }
+    .option:active { transform: scale(0.99); }
+
+    .option-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid var(--muted);
+      flex-shrink: 0;
+      position: relative;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .option.selected .option-dot {
+      border-color: var(--q-color);
+      background: var(--q-color);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--q-color) 25%, transparent);
+    }
+    .option.selected .option-dot::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+    }
+    .option.selected {
+      border-color: var(--q-color);
+      background: color-mix(in srgb, var(--q-color) 10%, transparent);
+      color: #fff;
+    }
+
+    .answered-counter {
+      text-align: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 1.25rem;
+      font-weight: 600;
+    }
+    .answered-counter span { color: var(--white); }
+
+    .score-display {
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+
+    .score-ring-wrap {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 1.25rem;
+    }
+    .score-ring-wrap svg { transform: rotate(-90deg); }
+    .score-ring-bg { stroke: var(--border); }
+    .score-ring-fill {
+      stroke: url(#scoreGrad);
+      stroke-linecap: round;
+      transition: stroke-dashoffset 0.6s ease;
+    }
+    .score-number {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .score-pct {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .score-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .score-verdict {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .score-msg {
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 380px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── WEAKEST REALM CALLOUT ── */
+    .weakest-callout {
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: linear-gradient(135deg,
+        color-mix(in srgb, var(--weak-color, #ff3c3c) 12%, transparent),
+        color-mix(in srgb, var(--weak-color, #ff3c3c) 4%, transparent));
+      border: 1px solid color-mix(in srgb, var(--weak-color, #ff3c3c) 35%, transparent);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s, background 0.4s;
+    }
+    .weakest-callout::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--weak-color, #ff3c3c) 0%, transparent 60%);
+      opacity: 0.08;
+      pointer-events: none;
+      transition: background 0.4s;
+    }
+
+    .weakest-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+    .weakest-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--weak-color, #ff3c3c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 8px 24px color-mix(in srgb, var(--weak-color, #ff3c3c) 40%, transparent);
+      transition: background 0.4s, box-shadow 0.4s;
+    }
+    .weakest-icon { font-size: 1.75rem; line-height: 1; }
+    .weakest-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--weak-color, #ff3c3c);
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      transition: color 0.4s;
+    }
+    .weakest-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .weakest-title span {
+      color: var(--weak-color, #ff3c3c);
+      transition: color 0.4s;
+    }
+
+    .weakest-intro {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .weakest-plan-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 0.875rem;
+      opacity: 0.9;
+      position: relative;
+    }
+
+    .weakest-plan {
+      list-style: none;
+      counter-reset: plan;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      position: relative;
+    }
+    .weakest-plan li {
+      counter-increment: plan;
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--white);
+      opacity: 0.92;
+    }
+    .weakest-plan li::before {
+      content: counter(plan);
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--weak-color, #ff3c3c) 18%, transparent);
+      border: 1px solid color-mix(in srgb, var(--weak-color, #ff3c3c) 50%, transparent);
+      color: var(--weak-color, #ff3c3c);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+      transition: background 0.4s, border-color 0.4s, color 0.4s;
+    }
+
+    /* tie/perfect state */
+    .weakest-callout.balanced .weakest-plan,
+    .weakest-callout.balanced .weakest-plan-label { display: none; }
+
+    /* Start-plan CTA inside the callout */
+    .start-plan-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      padding: 0.85rem 1.75rem;
+      background: var(--weak-color, var(--accent));
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 28px color-mix(in srgb, var(--weak-color, var(--accent)) 35%, transparent);
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .start-plan-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px color-mix(in srgb, var(--weak-color, var(--accent)) 50%, transparent);
+    }
+    .weakest-callout.balanced .start-plan-btn { display: none; }
+
+    /* ── DASHBOARD (active 7-day plan) ── */
+    .dashboard {
+      padding: 5rem 1.5rem 1rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .dashboard-card {
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--d-color, var(--accent)) 30%, var(--border));
+      border-radius: 24px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .dashboard-card::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, var(--d-color, var(--accent)) 0%, transparent 60%);
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .dash-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .dash-realm-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 1rem;
+      background: color-mix(in srgb, var(--d-color, var(--accent)) 15%, transparent);
+      border: 1px solid color-mix(in srgb, var(--d-color, var(--accent)) 35%, transparent);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--d-color, var(--accent));
+    }
+    .dash-realm-tag-icon { font-size: 1rem; }
+    .dash-retake {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.45rem 0.9rem;
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+    .dash-retake:hover { color: var(--white); border-color: var(--white); }
+
+    .streak-display {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .streak-flame {
+      font-size: 2.5rem;
+      filter: drop-shadow(0 4px 12px rgba(255,123,0,0.4));
+    }
+    .streak-flame.cold { filter: grayscale(1); opacity: 0.4; }
+    .streak-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .streak-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    .today-section { position: relative; }
+    .today-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--d-color, var(--accent));
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .today-task {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+    .checkin-btn {
+      width: 100%;
+      padding: 1.1rem;
+      background: var(--d-color, var(--accent));
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.2s, background 0.3s;
+      box-shadow: 0 8px 24px color-mix(in srgb, var(--d-color, var(--accent)) 30%, transparent);
+    }
+    .checkin-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px color-mix(in srgb, var(--d-color, var(--accent)) 45%, transparent);
+    }
+    .checkin-btn.done {
+      background: color-mix(in srgb, var(--d-color, var(--accent)) 20%, var(--card));
+      color: var(--d-color, var(--accent));
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+      border: 1px solid color-mix(in srgb, var(--d-color, var(--accent)) 40%, transparent);
+    }
+
+    .progress-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.5rem;
+      margin: 2rem 0 1.5rem;
+      position: relative;
+    }
+    .progress-day {
+      aspect-ratio: 1;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--muted);
+      position: relative;
+      transition: all 0.3s;
+    }
+    .progress-day.done {
+      background: var(--d-color, var(--accent));
+      border-color: var(--d-color, var(--accent));
+      color: #fff;
+      box-shadow: 0 4px 16px color-mix(in srgb, var(--d-color, var(--accent)) 35%, transparent);
+    }
+    .progress-day.current {
+      border-color: var(--d-color, var(--accent));
+      color: var(--white);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--d-color, var(--accent)) 20%, transparent);
+    }
+
+    .dash-next {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+      padding: 1rem 1.25rem;
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      border-left: 3px solid color-mix(in srgb, var(--d-color, var(--accent)) 50%, transparent);
+      position: relative;
+    }
+    .dash-next strong {
+      color: var(--white);
+      font-weight: 600;
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Day-7 finished state */
+    .dashboard-card.finished .today-section,
+    .dashboard-card.finished .dash-next { display: none; }
+    .finished-state { display: none; text-align: center; padding: 1rem 0; }
+    .dashboard-card.finished .finished-state { display: block; }
+    .finished-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .finished-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .finished-msg {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .finished-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .finished-btn {
+      padding: 0.85rem 1.5rem;
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--white);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .finished-btn.primary {
+      background: var(--d-color, var(--accent));
+      border-color: var(--d-color, var(--accent));
+      color: #fff;
+    }
+    .finished-btn:hover { border-color: var(--white); }
+
+    /* ── QUOTE ── */
+    .quote-section {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-section::before {
+      content: '"';
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Syne', sans-serif;
+      font-size: 20rem;
+      color: rgba(255,60,60,0.04);
+      pointer-events: none;
+      line-height: 1;
+    }
+    blockquote {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      max-width: 780px;
+      margin: 0 auto 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    blockquote em {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-style: normal;
+    }
+    .quote-attr {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── ROADMAP ── */
+    .roadmap {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .roadmap-item {
+      display: flex;
+      gap: 1.5rem;
+      position: relative;
+      padding-bottom: 2.5rem;
+    }
+    .roadmap-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .roadmap-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 2px solid var(--dot-color, var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .roadmap-item:hover .roadmap-dot {
+      background: var(--dot-color, var(--accent));
+      box-shadow: 0 0 20px var(--dot-color, var(--accent));
+    }
+    .roadmap-content { padding-top: 0.5rem; }
+    .roadmap-month {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dot-color, var(--accent));
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .roadmap-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .roadmap-detail {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .roadmap-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── SHARE SECTION ── */
+    .share-section {
+      padding: 5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+    .share-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 50% 100%, rgba(255,60,60,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .share-inner {
+      position: relative;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .share-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .share-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    .share-title span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .share-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.65;
+      margin-bottom: 2.25rem;
+    }
+    .share-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s, border-color 0.2s, background 0.2s;
+    }
+    .share-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 8%, var(--card));
+    }
+    .share-btn svg { width: 16px; height: 16px; }
+    .share-btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-color: transparent;
+      box-shadow: 0 0 30px rgba(255,60,60,0.25);
+    }
+    .share-btn.primary:hover {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-color: transparent;
+    }
+    .copy-toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(150%);
+      background: var(--card);
+      border: 1px solid var(--accent);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+      pointer-events: none;
+      z-index: 100;
+    }
+    .copy-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 480px) {
+      .share-section { padding: 4rem 1rem; }
+      .share-btn { font-size: 0.85rem; padding: 0.75rem 1.25rem; }
+      .share-desc { font-size: 0.95rem; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .footer-logo span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .footer-msg {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ──
+       Realms grid uses auto-fit minmax(310px, 1fr) — naturally
+       collapses 3→2→1 cols based on available width. No override needed
+       until we want a different breakpoint than the geometry produces. */
+
+    /* Tablets & small desktops — 900px and below */
+    @media (max-width: 900px) {
+      .section { padding: 5rem 1.5rem; }
+      .equation { padding: 2.5rem 1.5rem; }
+      .equation-inner { gap: 1rem; }
+      .quote-section { padding: 4rem 1.5rem; }
+      .quote-section::before { font-size: 14rem; }
+      .assessment-wrap { padding: 2.5rem 1.5rem; }
+    }
+
+    /* Force single-column realms below 640px (where 2 cols of 310px stop fitting cleanly) */
+    @media (max-width: 640px) {
+      .realms-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Phones — 600px and below */
+    @media (max-width: 600px) {
+      .section { padding: 3.5rem 1rem; }
+      .hero { padding: 2rem 1rem; }
+      .hero-eyebrow { letter-spacing: 0.25em; font-size: 0.7rem; }
+      .hero-sub { font-size: 1rem; margin: 1.5rem auto 2rem; }
+      .cta-btn { padding: 0.875rem 2rem; font-size: 0.95rem; }
+      .scroll-hint { bottom: 1rem; }
+
+      .equation { padding: 2rem 1rem; }
+      .equation-inner { gap: 0.5rem 0.75rem; }
+      .eq-pill, .eq-result { font-size: 1rem; padding: 0.3rem 0.8rem; }
+
+      .realm-card { padding: 1.5rem; }
+      .realm-icon { font-size: 2.25rem; }
+      .realm-title { font-size: 1.35rem; }
+
+      .assessment-wrap { padding: 1.75rem 1rem; margin-top: 3rem; }
+      .assessment-title { font-size: 1.4rem; }
+      .assessment-sub { font-size: 0.88rem; margin-bottom: 2rem; }
+
+      .question-card { padding: 1.25rem 1rem; }
+      .question-icon { font-size: 1.25rem; width: 32px; height: 32px; }
+      .question-title { font-size: 1rem; }
+      .question-prompt { font-size: 0.82rem; margin-left: 0; margin-bottom: 0.875rem; }
+      .option { padding: 0.75rem 0.875rem; font-size: 0.88rem; }
+      .questions { gap: 1.25rem; }
+
+      .score-ring-wrap { width: 140px; height: 140px; }
+      .score-pct { font-size: 2.2rem; }
+
+      .weakest-callout { padding: 1.5rem 1.25rem; margin-top: 2rem; border-radius: 16px; }
+      .weakest-badge { width: 48px; height: 48px; border-radius: 12px; }
+      .weakest-icon { font-size: 1.4rem; }
+      .weakest-title { font-size: 1.05rem; }
+      .weakest-plan li { font-size: 0.85rem; gap: 0.7rem; }
+
+      .dashboard { padding: 4rem 1rem 1rem; }
+      .dashboard-card { padding: 1.75rem 1.25rem; border-radius: 18px; }
+      .dash-top { margin-bottom: 1.5rem; }
+      .streak-flame { font-size: 2rem; }
+      .streak-number { font-size: 2.25rem; }
+      .today-task { font-size: 1.15rem; }
+      .checkin-btn { padding: 1rem; font-size: 0.92rem; }
+      .progress-day { font-size: 0.8rem; border-radius: 8px; }
+      .progress-grid { gap: 0.4rem; }
+      .finished-title { font-size: 1.3rem; }
+
+      .quote-section { padding: 3rem 1rem; }
+      .quote-section::before { font-size: 9rem; top: 0; }
+      blockquote { letter-spacing: -0.01em; }
+
+      .roadmap-item { gap: 1rem; }
+      footer { padding: 2rem 1rem; }
+    }
+
+    /* Small phones — 400px and below */
+    @media (max-width: 400px) {
+      .section { padding: 3rem 0.875rem; }
+      .hero { padding: 1.5rem 0.875rem; }
+      .hero-eyebrow { letter-spacing: 0.18em; font-size: 0.65rem; }
+
+      .assessment-wrap { padding: 1.5rem 0.875rem; }
+      .assessment-title { font-size: 1.25rem; }
+
+      .realm-card { padding: 1.25rem; }
+      .realm-title { font-size: 1.25rem; }
+      .realm-icon { font-size: 2rem; }
+
+      .eq-pill, .eq-result { font-size: 0.85rem; padding: 0.25rem 0.6rem; }
+      .cta-btn { width: 100%; text-align: center; padding: 0.875rem 1rem; }
+
+      .score-ring-wrap { width: 120px; height: 120px; }
+      .score-pct { font-size: 1.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <p class="hero-eyebrow">The 6-Realm Framework</p>
+  <h1>Dangerously<br /><span>Confident.</span></h1>
+  <p class="hero-sub">
+    Confidence isn't a feeling — it's a <strong>byproduct of competence</strong>.
+    Master six measurable realms and become someone the world cannot ignore.
+  </p>
+  <a class="cta-btn" href="#realms">Start Your Audit →</a>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ══ EQUATION ══ -->
+<div class="equation reveal">
+  <div class="equation-inner">
+    <span class="eq-pill">Competence</span>
+    <span class="eq-op">=</span>
+    <span class="eq-pill">Confidence</span>
+    <span class="eq-op">·</span>
+    <span class="eq-result">Dangerous</span>
+  </div>
+</div>
+
+<!-- ══ REALMS ══ -->
+<section class="section" id="realms">
+  <div class="realms-header reveal">
+    <p class="section-label">The Framework</p>
+    <h2 class="section-title">Six Realms of Competence</h2>
+    <p class="section-desc">
+      You can't fake true confidence. It has to be earned across every dimension of life.
+      Audit yourself honestly — then get to work.
+    </p>
+  </div>
+
+  <div class="realms-grid">
+
+    <div class="realm-card realm-1 reveal reveal-delay-1">
+      <span class="realm-icon">⚡</span>
+      <p class="realm-number">Realm 01</p>
+      <h3 class="realm-title">Skillfully Competent</h3>
+      <p class="realm-desc">
+        Do you have valuable skills the market actually pays for? Skills are only meaningful if they generate money, opportunities, or leverage.
+      </p>
+      <div class="realm-action">
+        <div class="realm-action-item">Pick one skill and go deep for 6 months</div>
+        <div class="realm-action-item">Sales, copywriting, coding, public speaking</div>
+        <div class="realm-action-item">Measure by what it produces — not hours put in</div>
+      </div>
+    </div>
+
+    <div class="realm-card realm-2 reveal reveal-delay-2">
+      <span class="realm-icon">🔥</span>
+      <p class="realm-number">Realm 02</p>
+      <h3 class="realm-title">Physically Competent</h3>
+      <p class="realm-desc">
+        Your body is a reflection of your habits. Take care of it and your mental clarity, confidence, and energy all go up — automatically.
+      </p>
+      <div class="realm-action">
+        <div class="realm-action-item">Train 4x per week minimum</div>
+        <div class="realm-action-item">Sleep 7–9 hrs, eat for energy not comfort</div>
+        <div class="realm-action-item">Look like someone who has their life together</div>
+      </div>
+    </div>
+
+    <div class="realm-card realm-3 reveal reveal-delay-3">
+      <span class="realm-icon">🧠</span>
+      <p class="realm-number">Realm 03</p>
+      <h3 class="realm-title">Mentally Competent</h3>
+      <p class="realm-desc">
+        Can you handle pressure without breaking? The mentally strong adapt — they don't vent. Resilience is a skill, not a personality trait.
+      </p>
+      <div class="realm-action">
+        <div class="realm-action-item">When hit hard — adapt, don't complain</div>
+        <div class="realm-action-item">Sit with discomfort deliberately every day</div>
+        <div class="realm-action-item">Build a bias toward action over analysis</div>
+      </div>
+    </div>
+
+    <div class="realm-card realm-4 reveal reveal-delay-1">
+      <span class="realm-icon">🤝</span>
+      <p class="realm-number">Realm 04</p>
+      <h3 class="realm-title">Socially Competent</h3>
+      <p class="realm-desc">
+        Your network is your net worth. You need three kinds of people: someone ahead of you, someone beside you, someone rooting for you.
+      </p>
+      <div class="realm-action">
+        <div class="realm-action-item">Find a mentor who makes you uncomfortable</div>
+        <div class="realm-action-item">Build your peer group of builders</div>
+        <div class="realm-action-item">Protect the rare ones who genuinely want you to win</div>
+      </div>
+    </div>
+
+    <div class="realm-card realm-5 reveal reveal-delay-2">
+      <span class="realm-icon">🧭</span>
+      <p class="realm-number">Realm 05</p>
+      <h3 class="realm-title">Spiritually Competent</h3>
+      <p class="realm-desc">
+        Nothing to do with religion. Everything to do with knowing who you are when no one is watching. What would you defend even if it cost you?
+      </p>
+      <div class="realm-action">
+        <div class="realm-action-item">Define your core values — write them down</div>
+        <div class="realm-action-item">Act consistently whether seen or unseen</div>
+        <div class="realm-action-item">Know what matters beyond money and status</div>
+      </div>
+    </div>
+
+    <div class="realm-card realm-6 reveal reveal-delay-3">
+      <span class="realm-icon">💰</span>
+      <p class="realm-number">Realm 06</p>
+      <h3 class="realm-title">Financially Competent</h3>
+      <p class="realm-desc">
+        More money means more confidence. You walk different, talk different. But fix the first five realms — and the money follows naturally.
+      </p>
+      <div class="realm-action">
+        <div class="realm-action-item">Track every dollar in and out</div>
+        <div class="realm-action-item">Build one income stream to $5k/mo before diversifying</div>
+        <div class="realm-action-item">People pay for competence — become undeniable</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── SELF ASSESSMENT ── -->
+  <div class="assessment-wrap reveal" id="assessment">
+    <h3 class="assessment-title">Answer Honestly</h3>
+    <p class="assessment-sub">Pick the statement closest to your reality right now — not where you wish you were.</p>
+
+    <div class="questions" id="questions"></div>
+
+    <p class="answered-counter" id="answeredCounter"><span id="answeredCount">0</span> of 6 answered</p>
+
+    <div class="score-display">
+      <div class="score-ring-wrap">
+        <svg width="160" height="160" viewBox="0 0 160 160">
+          <defs>
+            <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#ff3c3c" />
+              <stop offset="100%" style="stop-color:#ff7b00" />
+            </linearGradient>
+          </defs>
+          <circle class="score-ring-bg" cx="80" cy="80" r="70"
+            fill="none" stroke-width="10" />
+          <circle class="score-ring-fill" id="ringFill" cx="80" cy="80" r="70"
+            fill="none" stroke-width="10"
+            stroke-dasharray="439.82"
+            stroke-dashoffset="219.91" />
+        </svg>
+        <div class="score-number">
+          <span class="score-pct" id="scorePct">50<small style="font-size:0.5em">%</small></span>
+          <span class="score-label">Overall</span>
+        </div>
+      </div>
+      <p class="score-verdict" id="scoreVerdict">Work in progress</p>
+      <p class="score-msg" id="scoreMsg">You have a foundation. Identify your weakest realm and attack it for 90 days straight.</p>
+    </div>
+
+    <!-- ── WEAKEST REALM CALLOUT ── -->
+    <div class="weakest-callout" id="weakestCallout">
+      <div class="weakest-header">
+        <div class="weakest-badge">
+          <span class="weakest-icon" id="weakestIcon">⚡</span>
+        </div>
+        <div>
+          <p class="weakest-label">Start here</p>
+          <h4 class="weakest-title">Your weakest realm is <span id="weakestName">Skills</span></h4>
+        </div>
+      </div>
+      <p class="weakest-intro" id="weakestIntro">This is where the biggest gain is hiding. Give it 7 focused days and watch your overall score shift.</p>
+      <p class="weakest-plan-label">Your 7-day attack plan</p>
+      <ol class="weakest-plan" id="weakestPlan"></ol>
+      <button class="start-plan-btn" id="startPlanBtn" type="button">
+        Start your 7-day plan →
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DASHBOARD (active plan — shows after audit is taken) ══ -->
+<section class="dashboard" id="dashboardSection" style="display:none">
+  <div class="dashboard-card" id="dashboardCard">
+    <div class="dash-top">
+      <div class="dash-realm-tag">
+        <span class="dash-realm-tag-icon" id="dashIcon">⚡</span>
+        <span>Working on: <strong id="dashRealmName">Skills</strong></span>
+      </div>
+      <button class="dash-retake" id="retakeBtn" type="button">Retake audit</button>
+    </div>
+
+    <div class="streak-display">
+      <span class="streak-flame" id="streakFlame">🔥</span>
+      <div>
+        <p class="streak-number" id="streakNumber">0</p>
+        <p class="streak-label" id="streakLabel">Day streak</p>
+      </div>
+    </div>
+
+    <div class="today-section">
+      <p class="today-label" id="todayLabel">Today · Day 1 of 7</p>
+      <h3 class="today-task" id="todayTask">Loading…</h3>
+      <button class="checkin-btn" id="checkinBtn" type="button">Mark today complete ✓</button>
+    </div>
+
+    <div class="progress-grid" id="progressGrid"></div>
+
+    <div class="dash-next" id="dashNext">
+      <strong>Up next</strong>
+      <span id="nextTask"></span>
+    </div>
+
+    <div class="finished-state">
+      <div class="finished-icon">🏆</div>
+      <h3 class="finished-title">You finished your 7 days.</h3>
+      <p class="finished-msg">That's proof of work. Most people quit by day 3. Want to retake the audit, or attack your next realm?</p>
+      <div class="finished-actions">
+        <button class="finished-btn primary" id="nextRealmBtn" type="button">Start next realm →</button>
+        <button class="finished-btn" id="retakeBtn2" type="button">Retake the full audit</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUOTE ══ -->
+<div class="quote-section reveal">
+  <blockquote>
+    "People pay for competence. They pay for people who <em>show up</em>, who <em>execute</em>, who have their life together."
+  </blockquote>
+  <p class="quote-attr">— The Dangerously Confident Framework</p>
+</div>
+
+<!-- ══ 6-MONTH ROADMAP ══ -->
+<section class="section">
+  <div class="reveal" style="max-width:600px; margin: 0 auto 3rem; text-align: center;">
+    <p class="section-label">Your Path</p>
+    <h2 class="section-title">The 6-Month Roadmap</h2>
+    <p class="section-desc" style="margin: 0 auto;">
+      One realm per month. Compound the gains. By month six, you won't recognize yourself.
+    </p>
+  </div>
+
+  <div class="roadmap">
+    <div class="realm-card realm-1 reveal" style="--dot-color:#ff3c3c">
+      <div class="roadmap-card-header">
+        <div class="roadmap-dot" style="--dot-color:#ff3c3c">⚡</div>
+        <div>
+          <p class="roadmap-month">Month 1</p>
+          <p class="roadmap-name">Lock in your skill</p>
+        </div>
+      </div>
+      <p class="roadmap-detail">Choose one marketable skill. Block 2 hours per day. Ship something by week 4 — a project, a post, a client. Proof of work beats intentions.</p>
+    </div>
+
+    <div class="realm-card realm-2 reveal" style="margin-top:1.5rem">
+      <div class="roadmap-card-header">
+        <div class="roadmap-dot" style="--dot-color:#ff7b00">🔥</div>
+        <div>
+          <p class="roadmap-month" style="color:#ff7b00">Month 2</p>
+          <p class="roadmap-name">Own your body</p>
+        </div>
+      </div>
+      <p class="roadmap-detail">Build the gym habit. Fix your sleep. Cut one bad food habit. You don't need a transformation — you need a baseline that signals discipline.</p>
+    </div>
+
+    <div class="realm-card realm-3 reveal" style="margin-top:1.5rem">
+      <div class="roadmap-card-header">
+        <div class="roadmap-dot" style="--dot-color:#4facfe">🧠</div>
+        <div>
+          <p class="roadmap-month" style="color:#4facfe">Month 3</p>
+          <p class="roadmap-name">Harden your mind</p>
+        </div>
+      </div>
+      <p class="roadmap-detail">Do the hard thing first every morning. Journal for 5 minutes on what you avoided yesterday. Stop venting — start adapting. Take a cold shower.</p>
+    </div>
+
+    <div class="realm-card realm-4 reveal" style="margin-top:1.5rem">
+      <div class="roadmap-card-header">
+        <div class="roadmap-dot" style="--dot-color:#a78bfa">🤝</div>
+        <div>
+          <p class="roadmap-month" style="color:#a78bfa">Month 4</p>
+          <p class="roadmap-name">Rebuild your circle</p>
+        </div>
+      </div>
+      <p class="roadmap-detail">Audit your 5 closest people. Reach out to one person ahead of you. Join one community aligned with your skill. Cut or limit energy vampires.</p>
+    </div>
+
+    <div class="realm-card realm-5 reveal" style="margin-top:1.5rem">
+      <div class="roadmap-card-header">
+        <div class="roadmap-dot" style="--dot-color:#34d399">🧭</div>
+        <div>
+          <p class="roadmap-month" style="color:#34d399">Month 5</p>
+          <p class="roadmap-name">Find your compass</p>
+        </div>
+      </div>
+      <p class="roadmap-detail">Write your 5 core values. For one week, make every decision by them. Kill the habit or action that contradicts who you say you are.</p>
+    </div>
+
+    <div class="realm-card realm-6 reveal" style="margin-top:1.5rem">
+      <div class="roadmap-card-header">
+        <div class="roadmap-dot" style="--dot-color:#f5c842">💰</div>
+        <div>
+          <p class="roadmap-month" style="color:#f5c842">Month 6</p>
+          <p class="roadmap-name">Get paid for who you became</p>
+        </div>
+      </div>
+      <p class="roadmap-detail">By now you have a skill, a body, a mindset, a network, and values. Package it. Charge for it. The money is the scoreboard — not the goal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SHARE ══ -->
+<section class="share-section reveal">
+  <div class="share-inner">
+    <p class="share-eyebrow">Pay it forward</p>
+    <h2 class="share-title">Know someone who needs to see this? <span>Send it.</span></h2>
+    <p class="share-desc">
+      Most people don't lack potential — they lack a framework. Take 10 seconds and share this with the friend, sibling, or co-worker who's been stuck. You might be the reason they start.
+    </p>
+    <div class="share-buttons">
+      <button class="share-btn primary" id="copyLinkBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        Copy link
+      </button>
+      <a class="share-btn" id="shareWhatsApp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2-1c-.3-.1-.5-.2-.8.2l-1 1.2c-.2.2-.4.3-.7.1-1-.5-1.9-1.1-2.7-1.9-.7-.8-1.3-1.6-1.8-2.6-.2-.3-.1-.5.1-.7l.7-.8c.2-.3.3-.5.1-.8L8.6 6.4c-.3-.6-.5-.5-.8-.5h-.6c-.3 0-.7.1-1 .4-1.1.9-1.6 2.2-1.5 3.6.4 2.8 2.1 5.4 4.6 6.9 1 .6 2 1.1 3.1 1.4.4.1.7.1 1.1.2.7 0 1.4-.2 2-.5.7-.4 1.2-1.1 1.4-1.9.1-.5.1-1 0-1.5-.1-.1-.2-.1-.4-.1zm-5.6-12c-5.5 0-10 4.5-10 10 0 1.8.5 3.5 1.4 5L2 22l5-1.3c1.5.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.4 2.4 11.9 2.4zm5.9 14.5c-.5.7-1.1 1.3-1.9 1.6-1 .5-2.1.7-3.2.6-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3c-2.3-3.8-1.2-8.7 2.5-11.1s8.7-1.2 11.1 2.5c2 3.2 1.5 7.2-1.4 9.9l-.1.3z"></path></svg>
+        WhatsApp
+      </a>
+      <a class="share-btn" id="shareTwitter" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+        X / Twitter
+      </a>
+      <button class="share-btn" id="nativeShareBtn" type="button" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+        Share
+      </button>
+    </div>
+  </div>
+  <div class="copy-toast" id="copyToast">Link copied — go send it 🔥</div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p class="footer-logo">Dangerously <span>Confident.</span></p>
+  <p class="footer-msg">Six realms. One version of you the world cannot ignore.</p>
+</footer>
+
+<script>
+  // ── Scroll reveal ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── Assessment ──
+  const ring = document.getElementById('ringFill');
+  const circumference = 439.82;
+
+  // ── Realm data: each realm has a question with 5 statement options ──
+  const realms = [
+    {
+      id: 'r1', name: 'Skills', icon: '⚡', color: '#ff3c3c',
+      question: "Which one is true for you right now?",
+      options: [
+        { value: 0,  text: "I don't have a marketable skill yet" },
+        { value: 3,  text: "I'm learning, but no one's paid me yet" },
+        { value: 5,  text: "I've been paid once or twice" },
+        { value: 7,  text: "I get paid regularly (side income)" },
+        { value: 10, text: "I earn my full income from this skill" }
+      ],
+      intro: "This is where the biggest gain is hiding. Pick one skill the market pays for and ship something this week.",
+      plan: [
+        "Pick ONE skill. Write it down. No second-guessing.",
+        "Find 3 people winning with it on YouTube or X. Study how they got there.",
+        "Block 2 hours per day on your calendar for this skill — non-negotiable.",
+        "Buy or find the best course. Stop researching, start doing.",
+        "Practice the core fundamental for 90 minutes — output, not theory.",
+        "Build a tiny project, post, or pitch that uses the skill.",
+        "Ship it publicly. Even if it's rough. Proof of work beats intentions."
+      ]
+    },
+    {
+      id: 'r2', name: 'Physical', icon: '🔥', color: '#ff7b00',
+      question: "Which one describes your body right now?",
+      options: [
+        { value: 0,  text: "Out of shape and not really training" },
+        { value: 3,  text: "I train sometimes but no consistency" },
+        { value: 5,  text: "I train 2–3 times a week, decent shape" },
+        { value: 7,  text: "I train 4+ times a week, sleep is dialed in" },
+        { value: 10, text: "I'm in the best shape of my life" }
+      ],
+      intro: "Your body is the first signal you send to the world. Fix this and your energy, clarity, and confidence all rise.",
+      plan: [
+        "Weigh in. Take baseline photos. No judgement — just data.",
+        "Sign up for a gym OR set up a home workout corner today.",
+        "Train. Even 20 minutes. The chain has to start somewhere.",
+        "Clean out the junk food. Stock the fridge with what fuels you.",
+        "Train again. Sleep 8 hours. Drink 3L of water.",
+        "Walk 10k steps. Add one more lift session.",
+        "Re-weigh. Re-photo. Confirm the trend, then keep stacking weeks."
+      ]
+    },
+    {
+      id: 'r3', name: 'Mental', icon: '🧠', color: '#4facfe',
+      question: "How do you handle pressure and hard things?",
+      options: [
+        { value: 0,  text: "I crumble under stress and avoid hard things" },
+        { value: 3,  text: "I push through but vent and complain a lot" },
+        { value: 5,  text: "I handle pressure okay, mostly steady" },
+        { value: 7,  text: "I do hard things on purpose every day" },
+        { value: 10, text: "Pressure is fuel — I run toward it" }
+      ],
+      intro: "Mental resilience is built by sitting with discomfort on purpose. Adapt — don't vent. Start today.",
+      plan: [
+        "Take a cold shower. Notice the resistance, then beat it.",
+        "Write down everything you avoided this week. Be brutally honest.",
+        "Do the hardest task FIRST thing tomorrow morning.",
+        "No phone in the first 30 minutes of waking. Use that time deliberately.",
+        "When something goes wrong today — adapt, don't complain. Practice it.",
+        "Sit alone for 20 minutes with no input. Just think.",
+        "Reflect: what got easier this week? That's your new baseline."
+      ]
+    },
+    {
+      id: 'r4', name: 'Social', icon: '🤝', color: '#a78bfa',
+      question: "What does your inner circle look like?",
+      options: [
+        { value: 0,  text: "I'm isolated, or only have draining people around me" },
+        { value: 3,  text: "I have friends but no one ahead of me" },
+        { value: 5,  text: "Good peer group, but no mentor yet" },
+        { value: 7,  text: "I have peers + someone ahead pulling me up" },
+        { value: 10, text: "I have all three: ahead, beside, and rooting for me" }
+      ],
+      intro: "Your network is your net worth. Find one person ahead, one beside, one rooting for you. Curate ruthlessly.",
+      plan: [
+        "List your 5 closest people. Rate the energy each one brings.",
+        "DM someone 2 steps ahead of you with one specific, well-researched question.",
+        "Join ONE community aligned with your goals — Discord, Slack, in-person.",
+        "Show up in that community. Contribute, don't lurk.",
+        "Schedule a call or coffee with someone on your path.",
+        "Reach out to a friend who genuinely wants you to win. Strengthen it.",
+        "Cut or limit time with the energy vampire on your list. Protect your space."
+      ]
+    },
+    {
+      id: 'r5', name: 'Spiritual', icon: '🧭', color: '#34d399',
+      question: "How clearly do you know what you stand for?",
+      options: [
+        { value: 0,  text: "I don't really know what I stand for" },
+        { value: 3,  text: "I have vague values but don't live by them" },
+        { value: 5,  text: "I know my values but compromise often" },
+        { value: 7,  text: "I act by my values most of the time" },
+        { value: 10, text: "I'd defend my values at real personal cost" }
+      ],
+      intro: "Knowing who you are when no one is watching. Define your compass — then live by it, especially when it costs you.",
+      plan: [
+        "Write your top 5 values. Just 5. Don't overthink — go with gut.",
+        "List 3 things you'd defend even if it cost you something real.",
+        "Make every decision today through this filter. Notice the friction.",
+        "Identify ONE habit that contradicts your stated values.",
+        "Kill that habit. Replace it with one that aligns.",
+        "Spend 30 minutes in silence — no phone, no input. Just you.",
+        "Re-read your values. Are they still true? Refine and commit."
+      ]
+    },
+    {
+      id: 'r6', name: 'Financial', icon: '💰', color: '#f5c842',
+      question: "Which one is true for your money right now?",
+      options: [
+        { value: 0,  text: "I'm in debt or living paycheck to paycheck" },
+        { value: 3,  text: "I cover my bills but save nothing" },
+        { value: 5,  text: "I save some, but no real cushion yet" },
+        { value: 7,  text: "3–6 months saved, income is growing" },
+        { value: 10, text: "I have real wealth and own my time" }
+      ],
+      intro: "Money isn't the goal — it's the scoreboard. Fix the other realms, then package what you became and charge for it.",
+      plan: [
+        "Open your banking app. Look at every dollar in and out. No flinching.",
+        "List every subscription. Cancel two you don't truly use.",
+        "Calculate your monthly burn rate. Know your real number.",
+        "Pick your strongest skill and decide what to charge for it.",
+        "Write the offer in 3 sentences. Make it specific and undeniable.",
+        "Send it to 5 real people. Even free at first — you're collecting proof.",
+        "Re-price based on feedback. Send to 10 more. Track every conversation."
+      ]
+    }
+  ];
+
+  // Track selected value per realm (null = unanswered)
+  const answers = Object.fromEntries(realms.map(r => [r.id, null]));
+
+  const callout = document.getElementById('weakestCallout');
+  const wIcon = document.getElementById('weakestIcon');
+  const wName = document.getElementById('weakestName');
+  const wIntro = document.getElementById('weakestIntro');
+  const wPlan = document.getElementById('weakestPlan');
+  const answeredCount = document.getElementById('answeredCount');
+  const startPlanBtn = document.getElementById('startPlanBtn');
+
+  // ── Persistence layer ──
+  const STORE_KEY = 'dangerouslyConfident.v1';
+  function loadState() {
+    try { return JSON.parse(localStorage.getItem(STORE_KEY)); } catch { return null; }
+  }
+  function saveState(s) {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(s)); } catch {}
+  }
+  function clearState() {
+    try { localStorage.removeItem(STORE_KEY); } catch {}
+  }
+  function dateKey(d = new Date()) {
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  }
+  function calcStreak(completedDays) {
+    if (!completedDays.length) return 0;
+    const set = new Set(completedDays);
+    const today = new Date(); today.setHours(0,0,0,0);
+    const todayStr = dateKey(today);
+    const yesterday = new Date(today); yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayStr = dateKey(yesterday);
+    if (!set.has(todayStr) && !set.has(yesterdayStr)) return 0;
+    const cursor = new Date(today);
+    if (!set.has(todayStr)) cursor.setDate(cursor.getDate() - 1);
+    let streak = 0;
+    while (set.has(dateKey(cursor))) {
+      streak++;
+      cursor.setDate(cursor.getDate() - 1);
+    }
+    return streak;
+  }
+
+  // ── Dashboard refs ──
+  const dashboardSection = document.getElementById('dashboardSection');
+  const dashboardCard = document.getElementById('dashboardCard');
+  const dashIcon = document.getElementById('dashIcon');
+  const dashRealmName = document.getElementById('dashRealmName');
+  const streakNumber = document.getElementById('streakNumber');
+  const streakLabel = document.getElementById('streakLabel');
+  const streakFlame = document.getElementById('streakFlame');
+  const todayLabel = document.getElementById('todayLabel');
+  const todayTask = document.getElementById('todayTask');
+  const checkinBtn = document.getElementById('checkinBtn');
+  const progressGrid = document.getElementById('progressGrid');
+  const dashNext = document.getElementById('dashNext');
+  const nextTask = document.getElementById('nextTask');
+  const assessmentWrap = document.getElementById('assessment');
+
+  // ── Render question cards (accordion) ──
+  const questionsContainer = document.getElementById('questions');
+  const cards = [];
+
+  function collapseAll() {
+    cards.forEach(c => c.classList.remove('expanded'));
+  }
+
+  function expandCard(index) {
+    collapseAll();
+    cards[index].classList.add('expanded');
+  }
+
+  function findNextUnansweredIndex(fromIndex) {
+    for (let i = fromIndex + 1; i < realms.length; i++) {
+      if (answers[realms[i].id] === null) return i;
+    }
+    for (let i = 0; i < fromIndex; i++) {
+      if (answers[realms[i].id] === null) return i;
+    }
+    return -1;
+  }
+
+  realms.forEach((realm, idx) => {
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.dataset.realm = realm.id;
+    card.style.setProperty('--q-color', realm.color);
+    card.innerHTML = `
+      <div class="question-header">
+        <span class="question-icon">${realm.icon}</span>
+        <h4 class="question-title">${realm.name}</h4>
+        <span class="question-status">Tap to answer</span>
+      </div>
+      <p class="question-prompt">${realm.question}</p>
+      <div class="question-options">
+        ${realm.options.map(opt => `
+          <button type="button" class="option" data-value="${opt.value}">
+            <span class="option-dot"></span>
+            <span>${opt.text}</span>
+          </button>
+        `).join('')}
+      </div>
+    `;
+    questionsContainer.appendChild(card);
+    cards.push(card);
+
+    // Click on collapsed card → expand it (collapse others)
+    card.addEventListener('click', (e) => {
+      if (card.classList.contains('expanded')) return;
+      if (e.target.closest('.option')) return;
+      expandCard(idx);
+    });
+
+    // Click on an option → save answer, update summary, advance
+    card.querySelectorAll('.option').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        card.querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        card.classList.add('answered');
+
+        const chosen = realm.options.find(o => o.value === parseInt(btn.dataset.value));
+        card.querySelector('.question-status').textContent = chosen.text;
+
+        answers[realm.id] = chosen.value;
+
+        const next = findNextUnansweredIndex(idx);
+        if (next !== -1) {
+          setTimeout(() => expandCard(next), 220);
+        } else {
+          collapseAll();
+        }
+
+        updateScore();
+      });
+    });
+  });
+
+  // Expand the first card by default
+  expandCard(0);
+
+  function updateScore() {
+    const answered = realms.filter(r => answers[r.id] !== null);
+    const total = answered.reduce((sum, r) => sum + answers[r.id], 0);
+    const max = 60;
+    const pct = Math.round((total / max) * 100);
+
+    answeredCount.textContent = answered.length;
+    document.getElementById('scorePct').innerHTML = `${pct}<small style="font-size:0.5em">%</small>`;
+
+    const offset = circumference - (pct / 100) * circumference;
+    ring.style.strokeDashoffset = offset;
+
+    const verdict = document.getElementById('scoreVerdict');
+    const msg = document.getElementById('scoreMsg');
+
+    // Show partial state until all 6 answered
+    if (answered.length === 0) {
+      verdict.textContent = 'Awaiting your answers';
+      verdict.style.color = '#6b6b88';
+      msg.textContent = 'Answer the 6 questions above to see where you really stand.';
+      callout.style.display = 'none';
+      return;
+    }
+
+    if (answered.length < 6) {
+      verdict.textContent = `Keep going — ${6 - answered.length} left`;
+      verdict.style.color = '#ff7b00';
+      msg.textContent = "Don't skip any. The realm you'd rather avoid is usually the one with the biggest unlock.";
+      callout.style.display = 'none';
+      return;
+    }
+
+    if (pct < 30) {
+      verdict.textContent = 'Starting Line';
+      verdict.style.color = '#ff3c3c';
+      msg.textContent = 'Everyone starts somewhere. Pick one realm and give it 90 days of obsession. Progress is the cure for doubt.';
+    } else if (pct < 50) {
+      verdict.textContent = 'Work in Progress';
+      verdict.style.color = '#ff7b00';
+      msg.textContent = 'You have a foundation. Identify your weakest realm and attack it for 90 days straight. Momentum will follow.';
+    } else if (pct < 70) {
+      verdict.textContent = 'Getting Dangerous';
+      verdict.style.color = '#f5c842';
+      msg.textContent = "You're above average — which means the gap between you and dangerous is just consistency. Don't stop here.";
+    } else if (pct < 85) {
+      verdict.textContent = 'Genuinely Confident';
+      verdict.style.color = '#34d399';
+      msg.textContent = "You've done the work. The world can feel it. Keep compounding — the top 5% is closer than you think.";
+    } else {
+      verdict.textContent = 'Dangerously Confident';
+      verdict.style.color = '#ff3c3c';
+      msg.textContent = 'You are the person others study. Your job now is to pull others up with you. Teach what you know.';
+    }
+
+    callout.style.display = '';
+    updateWeakest();
+  }
+
+  function updateWeakest() {
+    const values = realms.map(r => answers[r.id]);
+    const minVal = Math.min(...values);
+    const maxVal = Math.max(...values);
+    const weakestIdx = values.indexOf(minVal);
+    const weakest = realms[weakestIdx];
+
+    callout.style.setProperty('--weak-color', weakest.color);
+    wIcon.textContent = weakest.icon;
+    wName.textContent = weakest.name;
+
+    // All maxed
+    if (minVal >= 10) {
+      callout.classList.add('balanced');
+      wName.textContent = 'nothing — keep stacking';
+      wIntro.textContent = "You're operating at the top across every realm. Your job now: stay obsessed and pull others up with you.";
+      wPlan.innerHTML = '';
+      return;
+    }
+
+    // All equal but not maxed
+    if (minVal === maxVal) {
+      callout.classList.remove('balanced');
+      wName.textContent = 'evenly balanced';
+      wIntro.textContent = "You're balanced across all six. Pick the realm that excites you least — that's usually the one hiding the biggest unlock. Try one of these starts:";
+      wPlan.innerHTML = weakest.plan.slice(0, 5).map(step => `<li>${step}</li>`).join('');
+      return;
+    }
+
+    callout.classList.remove('balanced');
+    wIntro.textContent = weakest.intro;
+    wPlan.innerHTML = weakest.plan.map(step => `<li>${step}</li>`).join('');
+  }
+
+  // ── Dashboard ──
+  function getWeakestRealm() {
+    const values = realms.map(r => answers[r.id]);
+    const minVal = Math.min(...values);
+    const idx = values.indexOf(minVal);
+    return realms[idx];
+  }
+
+  function startPlan(realmId) {
+    const state = loadState() || {};
+    state.answers = { ...answers };
+    state.activeRealmId = realmId;
+    state.startDate = dateKey();
+    state.completedDays = [];
+    state.completedRealms = state.completedRealms || [];
+    saveState(state);
+    renderDashboard();
+    setTimeout(() => {
+      dashboardSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+
+  function renderDashboard() {
+    const state = loadState();
+    if (!state || !state.activeRealmId) {
+      dashboardSection.style.display = 'none';
+      assessmentWrap.style.display = '';
+      return;
+    }
+
+    const realm = realms.find(r => r.id === state.activeRealmId);
+    if (!realm) {
+      clearState();
+      dashboardSection.style.display = 'none';
+      return;
+    }
+
+    dashboardSection.style.display = '';
+    assessmentWrap.style.display = 'none';
+    dashboardCard.style.setProperty('--d-color', realm.color);
+    dashIcon.textContent = realm.icon;
+    dashRealmName.textContent = realm.name;
+
+    const completed = state.completedDays || [];
+    const dayIndex = completed.length; // 0..7 — which day they're ON
+    const streak = calcStreak(completed);
+
+    streakNumber.textContent = streak;
+    streakLabel.textContent = streak === 1 ? 'Day streak' : 'Day streak';
+    streakFlame.classList.toggle('cold', streak === 0);
+
+    // Render progress grid (7 squares)
+    progressGrid.innerHTML = '';
+    for (let i = 0; i < 7; i++) {
+      const cell = document.createElement('div');
+      cell.className = 'progress-day';
+      if (i < dayIndex) cell.classList.add('done');
+      else if (i === dayIndex) cell.classList.add('current');
+      cell.textContent = i + 1;
+      progressGrid.appendChild(cell);
+    }
+
+    // Finished state
+    if (dayIndex >= 7) {
+      dashboardCard.classList.add('finished');
+      return;
+    }
+    dashboardCard.classList.remove('finished');
+
+    // Today's task
+    todayLabel.textContent = `Today · Day ${dayIndex + 1} of 7`;
+    todayTask.textContent = realm.plan[dayIndex];
+
+    // Has today already been checked in?
+    const today = dateKey();
+    const doneToday = completed.includes(today);
+    if (doneToday) {
+      checkinBtn.classList.add('done');
+      checkinBtn.textContent = "Today's locked in. See you tomorrow 💪";
+      checkinBtn.disabled = true;
+    } else {
+      checkinBtn.classList.remove('done');
+      checkinBtn.textContent = 'Mark today complete ✓';
+      checkinBtn.disabled = false;
+    }
+
+    // Up next
+    if (dayIndex + 1 < 7) {
+      dashNext.style.display = '';
+      nextTask.textContent = realm.plan[dayIndex + 1];
+    } else {
+      dashNext.style.display = 'none';
+    }
+  }
+
+  // Check-in handler
+  checkinBtn.addEventListener('click', () => {
+    const state = loadState();
+    if (!state) return;
+    const today = dateKey();
+    state.completedDays = state.completedDays || [];
+    if (state.completedDays.includes(today)) return;
+    state.completedDays.push(today);
+    saveState(state);
+    renderDashboard();
+  });
+
+  // Start-plan button (on weakest callout)
+  startPlanBtn.addEventListener('click', () => {
+    const weakest = getWeakestRealm();
+    startPlan(weakest.id);
+  });
+
+  // Retake buttons
+  function retakeAudit() {
+    if (!confirm('This will clear your current 7-day progress. Continue?')) return;
+    clearState();
+    Object.keys(answers).forEach(k => answers[k] = null);
+    cards.forEach(c => {
+      c.classList.remove('answered', 'expanded');
+      c.querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+      c.querySelector('.question-status').textContent = 'Tap to answer';
+    });
+    expandCard(0);
+    dashboardSection.style.display = 'none';
+    assessmentWrap.style.display = '';
+    updateScore();
+    assessmentWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  document.getElementById('retakeBtn').addEventListener('click', retakeAudit);
+  document.getElementById('retakeBtn2').addEventListener('click', retakeAudit);
+
+  // Next-realm (after day 7)
+  document.getElementById('nextRealmBtn').addEventListener('click', () => {
+    const state = loadState();
+    if (!state) return;
+    // Mark current realm completed
+    state.completedRealms = state.completedRealms || [];
+    if (!state.completedRealms.includes(state.activeRealmId)) {
+      state.completedRealms.push(state.activeRealmId);
+    }
+    // Find next weakest among remaining unanswered realms
+    const remaining = realms.filter(r => !state.completedRealms.includes(r.id));
+    if (remaining.length === 0) {
+      alert("You've completed all 6 realms. That's dangerous. Time to retake the audit and see how far you've come.");
+      retakeAudit();
+      return;
+    }
+    remaining.sort((a, b) => state.answers[a.id] - state.answers[b.id]);
+    const next = remaining[0];
+    state.activeRealmId = next.id;
+    state.startDate = dateKey();
+    state.completedDays = [];
+    saveState(state);
+    renderDashboard();
+    dashboardSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // ── Hydrate from saved state on load ──
+  function hydrate() {
+    const state = loadState();
+    if (state && state.activeRealmId) {
+      // Restore the answers map so weakest-realm calc and score work
+      if (state.answers) Object.assign(answers, state.answers);
+      // Reflect saved answers in the question cards
+      realms.forEach((realm, idx) => {
+        const val = state.answers?.[realm.id];
+        if (val == null) return;
+        const card = cards[idx];
+        const btn = card.querySelector(`.option[data-value="${val}"]`);
+        if (btn) {
+          btn.classList.add('selected');
+          card.classList.add('answered');
+          const chosen = realm.options.find(o => o.value === val);
+          if (chosen) card.querySelector('.question-status').textContent = chosen.text;
+        }
+      });
+      collapseAll();
+      renderDashboard();
+    } else {
+      updateScore();
+    }
+  }
+  hydrate();
+
+  // ── Share buttons ──
+  const shareUrl = window.location.href;
+  const shareText = "Take this 5-min audit. Find your weakest realm. Get a 7-day plan to fix it →";
+  const fullShare = `${shareText} ${shareUrl}`;
+
+  const copyBtn = document.getElementById('copyLinkBtn');
+  const toast = document.getElementById('copyToast');
+  copyBtn?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    } catch {
+      const ta = document.createElement('textarea');
+      ta.value = shareUrl;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+  });
+
+  const waBtn = document.getElementById('shareWhatsApp');
+  if (waBtn) waBtn.href = `https://wa.me/?text=${encodeURIComponent(fullShare)}`;
+
+  const twBtn = document.getElementById('shareTwitter');
+  if (twBtn) twBtn.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+
+  // Show native share on mobile if supported
+  const nativeBtn = document.getElementById('nativeShareBtn');
+  if (nativeBtn && navigator.share) {
+    nativeBtn.style.display = '';
+    nativeBtn.addEventListener('click', () => {
+      navigator.share({
+        title: 'Dangerously Confident — the 6-realm framework',
+        text: shareText,
+        url: shareUrl
+      }).catch(() => {});
+    });
+  }
+</script>
+
+<!-- Cloudflare Web Analytics — replace YOUR_TOKEN after deploy.
+     1. Deploy to Cloudflare Pages
+     2. Go to Cloudflare dashboard → Analytics & Logs → Web Analytics
+     3. Click "Add a site" → choose your Pages domain → copy the token
+     4. Paste the token in place of YOUR_TOKEN below, then redeploy -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_TOKEN"}'></script>
+
+</body>
+</html>
